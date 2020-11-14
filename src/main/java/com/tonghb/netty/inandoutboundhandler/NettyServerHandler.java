@@ -12,7 +12,11 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<Long> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Long msg) throws Exception {
         System.out.println("读取到客户端发送过来的消息：" + msg);
+
+        // 向客户端回送数据
+        ctx.writeAndFlush(78910L);
     }
+
 
     // 异常处理
     @Override

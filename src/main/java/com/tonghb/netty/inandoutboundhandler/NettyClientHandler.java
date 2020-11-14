@@ -11,7 +11,8 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<Long> {
     // 读取管道的数据
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Long msg) throws Exception {
-
+        // 读取服务端发送过来的Long类型的数据
+        System.out.println("接收到服务端发送过来的消息：" + msg);
     }
 
     // 重写channelActive发送数据

@@ -34,9 +34,11 @@ public class NettyServer {
                             // 得到pipeline
                             ChannelPipeline pipeline = ch.pipeline();
 
-                            // 设置处理器
+                            // 设置long类型数据的编解码器
                             pipeline.addLast(new MyByteToLongDecoder());
+                            pipeline.addLast(new MyLongToByteEncoder());
 
+                            // 添加自定义的处理器
                             pipeline.addLast(new NettyServerHandler());
                         }
                     });
